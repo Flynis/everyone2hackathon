@@ -12,7 +12,7 @@ internal class Helper
         public required string Name { get; set; }
     }
 
-    public static List<Developer> ReadDevsFromCsv(string filename)
+    public static List<Developer> ReadDevsFromCsv(string filename, Jobs job)
     {
         var result = new List<Developer>();
 
@@ -28,10 +28,28 @@ internal class Helper
             var records = csv.GetRecords<CsvRecord>();
             foreach (var record in records)
             {
-                result.Add(new Developer { Id = record.Id, Name = record.Name });
+                var dev = new Developer
+                {
+                    Id = record.Id,
+                    Name = record.Name,
+                    Job = job
+                };
+                result.Add(dev);
             }
         }
 
         return result;
+    }
+
+    public static double HarmonicMean(int[] numbers)
+    {
+        var sum = 0.0;
+
+        foreach (var number in numbers)
+        {
+            sum += 1.0 / number;
+        }
+
+        return numbers.Length / sum;
     }
 }

@@ -4,13 +4,13 @@ namespace Everyone2Hackathon;
 
 internal record Team
 {
-    public required Developer Junior { get; init; }
-    public required Developer Teamlead { get; init; }
+    public required int Junior { get; init; }
+    public required int Teamlead { get; init; }
 
     public Team() { }
 
     [SetsRequiredMembers]
-    public Team(Developer junior, Developer teamlead)
+    public Team(int junior, int teamlead)
     {
         Junior = junior;
         Teamlead = teamlead;

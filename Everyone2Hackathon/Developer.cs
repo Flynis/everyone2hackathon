@@ -6,14 +6,16 @@ internal class Developer
 {
     public required int Id { get; init; }
     public required string Name { get; init; }
+    public required Jobs Job { get; init; }
 
     public Developer() { }
 
     [SetsRequiredMembers]
-    public Developer(int id, string name) 
+    public Developer(int id, string name, Jobs job) 
     {
         Id = id;
         Name = name;
+        Job = job;
     }
 
     public int[] FormWishlist(List<Developer> teammates)
