@@ -16,7 +16,7 @@ internal class Developer
         Name = name;
     }
 
-    public Wishlist GetWishlist(List<Developer> teammates)
+    public int[] FormWishlist(List<Developer> teammates)
     {
         int[] wishlist = teammates
                                 .Select(t => t.Id)
@@ -30,7 +30,7 @@ internal class Developer
             (wishlist[j], wishlist[i]) = (wishlist[i], wishlist[j]);
         }
 
-        return new Wishlist(this, wishlist);
+        return wishlist;
     }
 
     public override string ToString()

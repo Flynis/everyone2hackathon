@@ -4,13 +4,13 @@ namespace Everyone2Hackathon;
 
 internal record Wishlist
 {
-    public required Developer Owner { get; init; }
+    public required int Owner { get; init; }
     public required int[] Priorities { get; init; }
 
     public Wishlist() { }
 
     [SetsRequiredMembers]
-    public Wishlist(Developer owner, int[] priorities)
+    public Wishlist(int owner, int[] priorities)
     {
         Owner = owner;
         Priorities = priorities;
