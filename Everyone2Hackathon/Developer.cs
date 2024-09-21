@@ -18,11 +18,9 @@ internal class Developer
         Job = job;
     }
 
-    public int[] FormWishlist(List<Developer> teammates)
+    public Developer[] FormWishlist(List<Developer> teammates)
     {
-        int[] wishlist = teammates
-                                .Select(t => t.Id)
-                                .ToArray();
+        Developer[] wishlist = teammates.ToArray();
         var rand = new Random();
 
         for (int i = 0; i < wishlist.Length - 1; i++)

@@ -4,7 +4,7 @@ internal class OnlyJuniorWishTeamBuildingStrategy : ITeamBuildingStrategy
 {
     public List<Team> BuildTeams(List<Wishlist> wishlists)
     {
-        var chosenTeamleads = new HashSet<int>();
+        var chosenTeamleads = new HashSet<Developer>();
         var teams = new List<Team>();
 
         foreach (Wishlist wishlist in wishlists)
@@ -16,16 +16,16 @@ internal class OnlyJuniorWishTeamBuildingStrategy : ITeamBuildingStrategy
             }
 
             var teamleadIndex = 0;
-            int[] priorities = wishlist.Priorities;
+            Developer[] priorities = wishlist.Priorities;
             while (chosenTeamleads.Contains(priorities[teamleadIndex]))
             {
                 teamleadIndex++;
             }
 
-            int teamlead = priorities[teamleadIndex];
+            Developer teamlead = priorities[teamleadIndex];
             chosenTeamleads.Add(teamlead);
 
-            teams.Add(new Team(owner.Id, teamlead));
+            teams.Add(new Team(owner, teamlead));
         }
 
         return teams;

@@ -25,10 +25,10 @@ internal class HrDirector
         return Helper.HarmonicMean(harmonyIndexes);
     }
 
-    private int GetHarmonyIndex(int devId, int teammateId, int teammatesCount, List<Wishlist> wishlists)
+    private int GetHarmonyIndex(Developer dev, Developer teammate, int teammatesCount, List<Wishlist> wishlists)
     {
-        Wishlist? wishlist = wishlists.Find(w => w.Owner.Id == devId);
-        int teammateIndex = Array.IndexOf(wishlist.Priorities, teammateId);
+        Wishlist? wishlist = wishlists.Find(w => w.Owner.Id == dev.Id);
+        int teammateIndex = Array.IndexOf(wishlist.Priorities, teammate);
         return teammatesCount - teammateIndex;
     }
 }

@@ -26,13 +26,13 @@ internal class Hackathon
 
         foreach(var junior in juniors)
         {
-            int[] wishlist = junior.FormWishlist(teamleads);
+            Developer[] wishlist = junior.FormWishlist(teamleads);
             wishlists.Add(new Wishlist(junior, wishlist));
         }
 
         foreach (var teamlead in teamleads)
         {
-            int[] wishlist = teamlead.FormWishlist(juniors);
+            Developer[] wishlist = teamlead.FormWishlist(juniors);
             wishlists.Add(new Wishlist(teamlead, wishlist));
         }
 
